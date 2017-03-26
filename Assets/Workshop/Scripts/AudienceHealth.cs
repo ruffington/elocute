@@ -24,7 +24,7 @@ public class AudienceHealth : MonoBehaviour {
 
     //speech timing
     public float timeBetweenAttacks = 3f;     // The time in seconds between each attack.
-    float timer;                                // Timer for counting up to the next attack.
+    public float timer;                                // Timer for counting up to the next attack.
 
     public float duration = 1.0F;
 
@@ -57,7 +57,7 @@ public class AudienceHealth : MonoBehaviour {
 
 		float loudness = MicInput.MicLoudness * 100;
 
-		//Debug.Log("volume: " + loudness);
+		Debug.Log("volume: " + loudness);
 
 		// If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && currentHealth > 0)
@@ -70,7 +70,6 @@ public class AudienceHealth : MonoBehaviour {
             {
                 // ... set the colour of the damageImage to the flash colour.
                 //damageImage.color = flashColour;
-                Debug.Log("Damaged");
                 StartCoroutine(damageColor(true));
                 TakeDamage(10);
             }
@@ -93,6 +92,8 @@ public class AudienceHealth : MonoBehaviour {
         }
         else if (timer >= timeBetweenAttacks && currentHealth <= 0)
         {
+            Debug.Log("current health: " + currentHealth);
+            Debug.Log("loudness: " + loudness);
             if (loudness >= 25)
             {
                 TakeDamage(-10);
