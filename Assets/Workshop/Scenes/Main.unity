@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28770205, g: 0.38694826, b: 0.45394564, a: 1}
+  m_IndirectSpecularColor: {r: 0.28895047, g: 0.38699457, b: 0.4547966, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   rend: {fileID: 0}
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 5
 --- !u!82 &2813203
 AudioSource:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   rend: {fileID: 0}
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 5
 --- !u!82 &275777686
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   rend: {fileID: 0}
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 5
 --- !u!82 &821035518
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1581,7 +1581,7 @@ MonoBehaviour:
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   rend: {fileID: 0}
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 5
 --- !u!82 &1823177706
 AudioSource:
   m_ObjectHideFlags: 0
