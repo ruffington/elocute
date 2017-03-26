@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28895047, g: 0.38699457, b: 0.4547966, a: 1}
+  m_IndirectSpecularColor: {r: 0.28766587, g: 0.38692498, b: 0.45392996, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -188,12 +188,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
+  previousHealth: 0
   lowHealthClip: {fileID: 8300000, guid: fefe5f4c65c02e84eaa0d48c8c86c169, type: 3}
   noHealthClip: {fileID: 8300000, guid: 88abdd21640a4fe4c843e171fb10a328, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   rend: {fileID: 0}
-  timeBetweenAttacks: 5
+  timeBetweenAttacks: 1
 --- !u!82 &2813203
 AudioSource:
   m_ObjectHideFlags: 0
@@ -526,12 +527,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
+  previousHealth: 0
   lowHealthClip: {fileID: 8300000, guid: fefe5f4c65c02e84eaa0d48c8c86c169, type: 3}
   noHealthClip: {fileID: 8300000, guid: 88abdd21640a4fe4c843e171fb10a328, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   rend: {fileID: 0}
-  timeBetweenAttacks: 5
+  timeBetweenAttacks: 1
 --- !u!82 &275777686
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1136,12 +1138,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
+  previousHealth: 0
   lowHealthClip: {fileID: 8300000, guid: fefe5f4c65c02e84eaa0d48c8c86c169, type: 3}
   noHealthClip: {fileID: 8300000, guid: 88abdd21640a4fe4c843e171fb10a328, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   rend: {fileID: 0}
-  timeBetweenAttacks: 5
+  timeBetweenAttacks: 1
 --- !u!82 &821035518
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1576,12 +1579,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
+  previousHealth: 0
   lowHealthClip: {fileID: 8300000, guid: fefe5f4c65c02e84eaa0d48c8c86c169, type: 3}
   noHealthClip: {fileID: 8300000, guid: 88abdd21640a4fe4c843e171fb10a328, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   rend: {fileID: 0}
-  timeBetweenAttacks: 5
+  timeBetweenAttacks: 1
 --- !u!82 &1823177706
 AudioSource:
   m_ObjectHideFlags: 0
