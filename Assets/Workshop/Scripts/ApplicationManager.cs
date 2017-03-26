@@ -74,7 +74,7 @@ public class ApplicationManager : SingletonMonoBehaviour<ApplicationManager> {
 	}
 
 	private bool isTagValidButton(string tagToCheck) {
-		if(tagToCheck == IncrementButtonTag || tagToCheck == DecrementButtonTag || tagToCheck == SlideshowButtonTag) {
+		if(tagToCheck == IncrementButtonTag || tagToCheck == DecrementButtonTag) {
 			return true;
 		}
 
