@@ -17,14 +17,17 @@ public class AudienceHealth : MonoBehaviour {
     bool hasLeft;                                               // Whether the player has left.
     bool damaged;                                               // True when the player gets damaged.
 
+    public Renderer rend;
+
     //speech timing
     public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
     float timer;                                // Timer for counting up to the next attack.
 
     // Use this for initialization
     void Start () {
-		
-	}
+        rend = GetComponent<Renderer>();
+        rend.enabled = true;
+    }
 
     void Awake() //like the constructor
     {
@@ -42,13 +45,13 @@ public class AudienceHealth : MonoBehaviour {
         // Add the time since Update was last called to the timer.
         timer += Time.deltaTime;
 
-        Debug.Log("mic loudness: " + MicInput.MicLoudness);
         // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && currentHealth > 0)
         {
             // If the player has just been damaged...
-            Debug.Log("mic loudness inner:" + MicInput.MicLoudness);
-            if (MicInput.MicLoudness < 0)
+            Debug.Log("volume: " + MicInput.MicLoudness);
+            Debug.Log("current health: " + currentHealth);
+            if (MicInput.MicLoudness < 10)
             {
                 // ... set the colour of the damageImage to the flash colour.
                 //damageImage.color = flashColour;
@@ -60,6 +63,7 @@ public class AudienceHealth : MonoBehaviour {
             {
                 // ... transition the colour back to clear.
                 //damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+                
             }
 
             // Reset the damaged flag.
@@ -72,6 +76,7 @@ public class AudienceHealth : MonoBehaviour {
     {
         // Set the damaged flag so the screen will flash.
         damaged = true;
+        
 
         // Reduce the current health by the damage amount.
         currentHealth -= amount;
@@ -80,7 +85,7 @@ public class AudienceHealth : MonoBehaviour {
         //healthSlider.value = currentHealth;
 
         // Play the hurt sound effect.
-        audienceAudio.Play();
+        //audienceAudio.Play();
 
         //reset the timer
         timer = 0f;
@@ -99,14 +104,16 @@ public class AudienceHealth : MonoBehaviour {
         hasLeft = true;
 
         // Tell the animator that the player is dead.
-        anim.SetTrigger("Die");
+        //anim.SetTrigger("Die");
         Debug.Log("death");
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-        audienceAudio.clip = deathClip;
-        audienceAudio.Play();
+        //audienceAudio.clip = deathClip;
+        //audienceAudio.Play();
 
         // Change visiblility to hidden
+        //anim.enabled = false;
+        this.rend.enabled = false;
     }
 
 }

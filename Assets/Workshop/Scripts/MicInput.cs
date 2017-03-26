@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class MicInput : MonoBehaviour
 {
@@ -52,7 +51,6 @@ public class MicInput : MonoBehaviour
         // levelMax equals to the highest normalized value power 2, a small number because < 1
         // pass the value to a static var so we can access it from anywhere
         MicLoudness = LevelMax();
-        Debug.Log("Mic Loudness: " + MicLoudness);
     }
 
     bool _isInitialized;
