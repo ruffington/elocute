@@ -12,6 +12,8 @@ public class AudienceHealth : MonoBehaviour {
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 
+	public float volumeThreshold;									// The minimum volume user must speak at for object to hear.
+
     Animator anim;                                              // Reference to the Animator component.
     AudioSource audienceAudio;                                    // Reference to the AudioSource component.
     bool hasLeft;                                               // Whether the player has left.
@@ -25,8 +27,11 @@ public class AudienceHealth : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
-    }
+		this.volumeThreshold = pythagoranTheorem (this.transform.position.x, 
+			this.transform.position.y, 
+			this.transform.position.z);
+		Debug.Log (volumeThreshold);
+	}
 
     void Awake() //like the constructor
     {
@@ -44,16 +49,17 @@ public class AudienceHealth : MonoBehaviour {
         // Add the time since Update was last called to the timer.
         timer += Time.deltaTime;
 
+
 		float loudness = MicInput.MicLoudness * 100;
-		Debug.Log("volume: " + loudness);
+		//Debug.Log("volume: " + loudness);
 
 		// If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && currentHealth > 0)
         {
             // If the player has just been damaged...
             //Debug.Log("volume: " + MicInput.MicLoudness);
-            Debug.Log("current health: " + currentHealth);
-			if (loudness < 10)
+            //Debug.Log("current health: " + currentHealth);
+			if (loudness < volumeThreshold)
             {
                 // ... set the colour of the damageImage to the flash colour.
                 //damageImage.color = flashColour;
@@ -97,10 +103,10 @@ public class AudienceHealth : MonoBehaviour {
         //reset the timer
         timer = 0f;
 
-        // If the player has lost all it's health and the death flag hasn't been set yet...
+        // If the audience member has lost all it's health and the death flag hasn't been set yet...
         if (currentHealth <= 0 && !hasLeft)
         {
-            // ... it should die.
+			// ... it should die. (figurtively lol)
             Death();
         }
     }
@@ -109,7 +115,6 @@ public class AudienceHealth : MonoBehaviour {
     {
         // Set the death flag so this function won't be called again.
         hasLeft = true;
-
         // Tell the animator that the player is dead.
         //anim.SetTrigger("Die");
         Debug.Log("death");
@@ -121,5 +126,9 @@ public class AudienceHealth : MonoBehaviour {
         // Change visiblility to hidden
         setVisibility(false);
     }
+
+	float pythagoranTheorem(float x, float y, float z) {
+		return Mathf.Sqrt(Mathf.Pow(x,2) + Mathf.Pow(y,2) + Mathf.Pow(z,2));
+	}
 
 }
