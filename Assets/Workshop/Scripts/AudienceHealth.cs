@@ -44,13 +44,16 @@ public class AudienceHealth : MonoBehaviour {
         // Add the time since Update was last called to the timer.
         timer += Time.deltaTime;
 
-        // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
+		float loudness = MicInput.MicLoudness * 100;
+		Debug.Log("volume: " + loudness);
+
+		// If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && currentHealth > 0)
         {
             // If the player has just been damaged...
-            Debug.Log("volume: " + MicInput.MicLoudness);
+            //Debug.Log("volume: " + MicInput.MicLoudness);
             Debug.Log("current health: " + currentHealth);
-            if (MicInput.MicLoudness < 10)
+			if (loudness < 10)
             {
                 // ... set the colour of the damageImage to the flash colour.
                 //damageImage.color = flashColour;
