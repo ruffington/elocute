@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MicInput : MonoBehaviour
 {
@@ -43,10 +44,8 @@ public class MicInput : MonoBehaviour
                 levelMax = wavePeak;
             }
         }
-        return levelMax;
+        return levelMax * 100;
     }
-
-
 
     void Update()
     {
