@@ -196,6 +196,7 @@ MonoBehaviour:
   volumeThreshold: 10
   rend: {fileID: 0}
   timeBetweenAttacks: 1
+  duration: 1
 --- !u!82 &2813203
 AudioSource:
   m_ObjectHideFlags: 0
@@ -536,6 +537,7 @@ MonoBehaviour:
   volumeThreshold: 10
   rend: {fileID: 0}
   timeBetweenAttacks: 1
+  duration: 1
 --- !u!82 &275777686
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1148,6 +1150,7 @@ MonoBehaviour:
   volumeThreshold: 0
   rend: {fileID: 0}
   timeBetweenAttacks: 1
+  duration: 1
 --- !u!82 &821035518
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1522,9 +1525,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mStartingTextures:
+  - {fileID: 2800000, guid: 0f9b63e3a98e9724dbe9800c95745410, type: 3}
+  - {fileID: 2800000, guid: d6fe006ae1274df4e97586ccde09b8f2, type: 3}
+  - {fileID: 2800000, guid: ea067998f8f43cf4f8163726a38c0c72, type: 3}
+  - {fileID: 2800000, guid: da69925f3da17cb47ba0b57e7c975a4a, type: 3}
   - {fileID: 2800000, guid: b84c935c532fd514283a12d382c48914, type: 3}
-  - {fileID: 2800000, guid: 8d3517eb4d56e914f90846647b6a9642, type: 3}
-  - {fileID: 2800000, guid: e7c199a5ddb52f447b38339f79d84cfb, type: 3}
+  - {fileID: 2800000, guid: 1593ae9b46acd4340bf01722b6ef6a93, type: 3}
   mLocalStorageDirPath: /mnt/sdcard/Workshop/
 --- !u!4 &1599088398
 Transform:
@@ -1644,6 +1650,7 @@ MonoBehaviour:
   volumeThreshold: 0
   rend: {fileID: 0}
   timeBetweenAttacks: 1
+  duration: 1
 --- !u!82 &1823177706
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2103,6 +2110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
+  previousHealth: 0
   lowHealthClip: {fileID: 8300000, guid: c3a7b5bfa79ee0a4d84a849da13a12f1, type: 3}
   noHealthClip: {fileID: 8300000, guid: 88abdd21640a4fe4c843e171fb10a328, type: 3}
   flashSpeed: 5
@@ -2110,6 +2118,7 @@ MonoBehaviour:
   volumeThreshold: 20
   rend: {fileID: 0}
   timeBetweenAttacks: 0.5
+  duration: 1
 --- !u!1 &2075080163
 GameObject:
   m_ObjectHideFlags: 0
