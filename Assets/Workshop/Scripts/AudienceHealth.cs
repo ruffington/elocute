@@ -53,23 +53,17 @@ public class AudienceHealth : MonoBehaviour {
 
 
 		float loudness = MicInput.MicLoudness * 100;
-<<<<<<< HEAD
+
 		//Debug.Log("volume: " + loudness);
-=======
->>>>>>> caa537ab2f2a4b4dcf185c4b88d0cd2b5ea89a6d
 
 		// If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && currentHealth > 0)
         {
             // If the player has just been damaged...
             //Debug.Log("volume: " + MicInput.MicLoudness);
-<<<<<<< HEAD
-            //Debug.Log("current health: " + currentHealth);
+
+			//Debug.Log("current health: " + currentHealth);
 			if (loudness < volumeThreshold)
-=======
-            Debug.Log("current health: " + currentHealth);
-			if (loudness < 25)
->>>>>>> caa537ab2f2a4b4dcf185c4b88d0cd2b5ea89a6d
             {
                 // ... set the colour of the damageImage to the flash colour.
                 //damageImage.color = flashColour;

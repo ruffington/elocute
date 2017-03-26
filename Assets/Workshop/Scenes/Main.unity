@@ -1643,11 +1643,7 @@ MonoBehaviour:
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   volumeThreshold: 0
   rend: {fileID: 0}
-<<<<<<< HEAD
-  timeBetweenAttacks: 10
-=======
   timeBetweenAttacks: 1
->>>>>>> caa537ab2f2a4b4dcf185c4b88d0cd2b5ea89a6d
 --- !u!82 &1823177706
 AudioSource:
   m_ObjectHideFlags: 0
