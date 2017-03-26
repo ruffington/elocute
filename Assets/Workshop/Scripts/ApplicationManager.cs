@@ -36,6 +36,8 @@ public class ApplicationManager : SingletonMonoBehaviour<ApplicationManager> {
 			GameObject objHitByRay = Raycaster.getInstance().getObjectHitByRay();
 			string objHitTag = objHitByRay.tag;
 
+            Debug.Log(objHitTag);
+
 			// Check that there was a valid object hit by the raycast. Raycaster.getInstance().getObjectHitByRay() 
 			// returns null if no objects were hit by ray cast on this frame. Objects responding to input must have
 			// one of the increment/decrement/slideshow tags set to be affected and cycled by raycast.
@@ -56,6 +58,9 @@ public class ApplicationManager : SingletonMonoBehaviour<ApplicationManager> {
 					}
 				}
 			}
+            else if (mapTagToModeIndex(objHitTag) == 2) {
+                togglePause();
+            }
 		}
 		 
 		if(ScreenFaderSphere.getInstance() && !mFirstTextureReady && TextureLoader.getInstance().isFinishedLoadingFirstTexture()) 
@@ -65,7 +70,18 @@ public class ApplicationManager : SingletonMonoBehaviour<ApplicationManager> {
 		}
 	}
 
-	private int mapTagToModeIndex(string tagToMap) {
+    bool togglePause()
+    {
+        if (Time.timeScale == 0f)
+        {
+            Time.timeScale = 1f;
+            return (false);
+        }
+        Time.timeScale = 0f;
+        return (true);
+    }
+
+    private int mapTagToModeIndex(string tagToMap) {
 		if(tagToMap == IncrementButtonTag) return 0;
 		if(tagToMap == DecrementButtonTag) return 1;
 		if(tagToMap == SlideshowButtonTag) return 2;
