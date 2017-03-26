@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AudienceHealth : MonoBehaviour {
     public int startingHealth = 100;                            // The amount of health the player starts the game with.
     public int currentHealth;                                   // The current health the player has.
+    public int previousHealth;
     public AudioClip lowHealthClip;                             // The audio clip to play when the player has low health.
     //public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
     public AudioClip noHealthClip;                                 // The audio clip to play when the player dies.
@@ -41,6 +42,7 @@ public class AudienceHealth : MonoBehaviour {
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
+        previousHealth = currentHealth;
     }
 
     // Update is called once per frame
@@ -51,26 +53,54 @@ public class AudienceHealth : MonoBehaviour {
 
 
 		float loudness = MicInput.MicLoudness * 100;
+<<<<<<< HEAD
 		//Debug.Log("volume: " + loudness);
+=======
+>>>>>>> caa537ab2f2a4b4dcf185c4b88d0cd2b5ea89a6d
 
 		// If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && currentHealth > 0)
         {
             // If the player has just been damaged...
             //Debug.Log("volume: " + MicInput.MicLoudness);
+<<<<<<< HEAD
             //Debug.Log("current health: " + currentHealth);
 			if (loudness < volumeThreshold)
+=======
+            Debug.Log("current health: " + currentHealth);
+			if (loudness < 25)
+>>>>>>> caa537ab2f2a4b4dcf185c4b88d0cd2b5ea89a6d
             {
                 // ... set the colour of the damageImage to the flash colour.
                 //damageImage.color = flashColour;
                 TakeDamage(10);
             }
+            else
+            {
+                TakeDamage(-10);
+            }
             // Otherwise... do nothing
-			if (currentHealth == 20) {
-				audienceAudio.clip = lowHealthClip;
-				audienceAudio.Play();
-			}
+            if (previousHealth > currentHealth)
+            {
+                if (currentHealth == 20)
+                {
+                    audienceAudio.clip = lowHealthClip;
+                    audienceAudio.Play();
+                }
+            }
             // Reset the damaged flag.
+            damaged = false;
+        }
+        else if (timer >= timeBetweenAttacks && currentHealth <= 0)
+        {
+            if (loudness >= 25)
+            {
+                TakeDamage(-10);
+            }
+            else
+            {
+                TakeDamage(10);
+            }
             damaged = false;
         }
         
@@ -78,6 +108,7 @@ public class AudienceHealth : MonoBehaviour {
 
     public void setVisibility(bool visible)
     {
+        // Gets GameComponent children and loops through all elements and sets those with Renderer to visible
         foreach (Transform child in transform)
         {
             if(child.GetComponent<Renderer>() != null)
@@ -89,7 +120,8 @@ public class AudienceHealth : MonoBehaviour {
     {
         // Set the damaged flag so the screen will flash.
         damaged = true;
-        
+
+        previousHealth = currentHealth;
 
         // Reduce the current health by the damage amount.
         currentHealth -= amount;
@@ -109,19 +141,34 @@ public class AudienceHealth : MonoBehaviour {
 			// ... it should die. (figurtively lol)
             Death();
         }
+        else if(currentHealth > 0 && hasLeft)
+        {
+            Alive();
+        }
+    }
+
+    void Alive()
+    {
+        // Set the death flag to false
+        hasLeft = false;
+
+        Debug.Log("alive");
+
+        // Change visibility to not hidden
+        setVisibility(true);
     }
 
     void Death()
     {
+        // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
+        audienceAudio.clip = noHealthClip;
+        audienceAudio.Play();
+
         // Set the death flag so this function won't be called again.
         hasLeft = true;
         // Tell the animator that the player is dead.
         //anim.SetTrigger("Die");
         Debug.Log("death");
-
-        // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-		audienceAudio.clip = noHealthClip;
-        audienceAudio.Play();
 
         // Change visiblility to hidden
         setVisibility(false);
