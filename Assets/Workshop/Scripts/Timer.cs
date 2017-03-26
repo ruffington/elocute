@@ -23,6 +23,6 @@ public class Timer : MonoBehaviour
         var seconds = time % 60;
 
         timerLabel.text = string.Format("{0:00} : {1:00}", minutes, seconds);
-        Debug.Log(timerLabel.text.ToString());
+        // Debug.Log(timerLabel.text.ToString());
     }
 }

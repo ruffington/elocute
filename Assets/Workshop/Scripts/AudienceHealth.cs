@@ -34,7 +34,7 @@ public class AudienceHealth : MonoBehaviour {
 		this.volumeThreshold = pythagoranTheorem (this.transform.position.x, 
 			this.transform.position.y, 
 			this.transform.position.z);
-		Debug.Log (volumeThreshold);
+		// Debug.Log (volumeThreshold);
 	}
 
     void Awake() //like the constructor
@@ -57,7 +57,7 @@ public class AudienceHealth : MonoBehaviour {
 
 		float loudness = MicInput.MicLoudness * 100;
 
-		Debug.Log("volume: " + loudness);
+		// Debug.Log("volume: " + loudness);
 
 		// If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && currentHealth > 0)
@@ -92,8 +92,8 @@ public class AudienceHealth : MonoBehaviour {
         }
         else if (timer >= timeBetweenAttacks && currentHealth <= 0)
         {
-            Debug.Log("current health: " + currentHealth);
-            Debug.Log("loudness: " + loudness);
+            // Debug.Log("current health: " + currentHealth);
+            // Debug.Log("loudness: " + loudness);
             if (loudness >= 25)
             {
                 TakeDamage(-10);
