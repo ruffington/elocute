@@ -10,7 +10,7 @@ public class AudienceHealth : MonoBehaviour {
     public AudioClip lowHealthClip;                             // The audio clip to play when the player has low health.
     //public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
     public AudioClip noHealthClip;                                 // The audio clip to play when the player dies.
-    public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
+    public float flashSpeed = 1f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 
     Animator anim;                                              // Reference to the Animator component.
@@ -21,8 +21,11 @@ public class AudienceHealth : MonoBehaviour {
     public Renderer rend;
 
     //speech timing
-    public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
+    public float timeBetweenAttacks = 3f;     // The time in seconds between each attack.
     float timer;                                // Timer for counting up to the next attack.
+
+    public float duration = 1.0F;
+
 
     // Use this for initialization
     void Start () {
@@ -58,11 +61,14 @@ public class AudienceHealth : MonoBehaviour {
             {
                 // ... set the colour of the damageImage to the flash colour.
                 //damageImage.color = flashColour;
+                Debug.Log("Damaged");
+                StartCoroutine(damageColor(true));
                 TakeDamage(10);
             }
             else
             {
                 TakeDamage(-10);
+                StartCoroutine(damageColor(false));
             }
             // Otherwise... do nothing
             if (previousHealth > currentHealth)
@@ -98,6 +104,34 @@ public class AudienceHealth : MonoBehaviour {
         {
             if(child.GetComponent<Renderer>() != null)
                 child.GetComponent<Renderer>().enabled = visible;
+        }
+    }
+
+    IEnumerator damageColor(bool hit)
+    {
+        // Only flash red for first color component
+        bool first = false;
+        if (hit)
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.GetComponent<Renderer>() != null)
+                {
+                    Color OriginalColor = child.GetComponent<Renderer>().material.color;
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        child.GetComponent<Renderer>().material.color = flashColour;
+                        yield return new WaitForSeconds(.1f);
+                        child.GetComponent<Renderer>().material.color = OriginalColor;
+                        yield return new WaitForSeconds(.1f);
+                    }
+                    first = true;
+
+                }
+                if (first)
+                    break;
+            }
         }
     }
 
