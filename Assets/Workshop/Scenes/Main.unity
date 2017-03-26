@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28770247, g: 0.3869486, b: 0.45394605, a: 1}
+  m_IndirectSpecularColor: {r: 0.2888734, g: 0.38699913, b: 0.45473248, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -91,6 +91,29 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2813200 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: e114009a3bd3e8f468a74a286c531f73, type: 3}
+  m_PrefabInternal: {fileID: 681874533}
+--- !u!114 &2813202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2813200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73efe862278d057429dd2d73280a6366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  lowHealthClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  flashSpeed: 5
+  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  rend: {fileID: 0}
+  timeBetweenAttacks: 1
 --- !u!1001 &114322465
 Prefab:
   m_ObjectHideFlags: 0
@@ -246,6 +269,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &275777683 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: e114009a3bd3e8f468a74a286c531f73, type: 3}
+  m_PrefabInternal: {fileID: 789011867}
+--- !u!114 &275777685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 275777683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73efe862278d057429dd2d73280a6366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  lowHealthClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  flashSpeed: 5
+  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  rend: {fileID: 0}
+  timeBetweenAttacks: 1
 --- !u!1001 &387808082
 Prefab:
   m_ObjectHideFlags: 0
@@ -308,6 +354,14 @@ Prefab:
     - target: {fileID: 100002, guid: e114009a3bd3e8f468a74a286c531f73, type: 3}
       propertyPath: m_Name
       value: iron-man-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: e114009a3bd3e8f468a74a286c531f73, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300004, guid: e114009a3bd3e8f468a74a286c531f73, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e114009a3bd3e8f468a74a286c531f73, type: 3}
@@ -665,6 +719,29 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e114009a3bd3e8f468a74a286c531f73, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &821035515 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: e114009a3bd3e8f468a74a286c531f73, type: 3}
+  m_PrefabInternal: {fileID: 114322465}
+--- !u!114 &821035517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821035515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73efe862278d057429dd2d73280a6366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  lowHealthClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  flashSpeed: 5
+  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  rend: {fileID: 0}
+  timeBetweenAttacks: 1
 --- !u!1001 &905669851
 Prefab:
   m_ObjectHideFlags: 0

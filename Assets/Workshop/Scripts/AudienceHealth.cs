@@ -25,8 +25,7 @@ public class AudienceHealth : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rend = GetComponent<Renderer>();
-        rend.enabled = true;
+        
     }
 
     void Awake() //like the constructor
@@ -56,7 +55,6 @@ public class AudienceHealth : MonoBehaviour {
                 // ... set the colour of the damageImage to the flash colour.
                 //damageImage.color = flashColour;
                 TakeDamage(10);
-
             }
             // Otherwise...
             else
@@ -70,6 +68,15 @@ public class AudienceHealth : MonoBehaviour {
             damaged = false;
         }
         
+    }
+
+    public void setVisibility(bool visible)
+    {
+        foreach (Transform child in transform)
+        {
+            if(child.GetComponent<Renderer>() != null)
+                child.GetComponent<Renderer>().enabled = visible;
+        }
     }
 
     public void TakeDamage(int amount)
@@ -112,8 +119,7 @@ public class AudienceHealth : MonoBehaviour {
         //audienceAudio.Play();
 
         // Change visiblility to hidden
-        //anim.enabled = false;
-        this.rend.enabled = false;
+        setVisibility(false);
     }
 
 }
