@@ -8,7 +8,7 @@ public class AudienceHealth : MonoBehaviour {
     public int currentHealth;                                   // The current health the player has.
     public AudioClip lowHealthClip;                             // The audio clip to play when the player has low health.
     //public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
-    public AudioClip deathClip;                                 // The audio clip to play when the player dies.
+    public AudioClip noHealthClip;                                 // The audio clip to play when the player dies.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 
@@ -56,14 +56,11 @@ public class AudienceHealth : MonoBehaviour {
                 //damageImage.color = flashColour;
                 TakeDamage(10);
             }
-            // Otherwise...
-            else
-            {
-                // ... transition the colour back to clear.
-                //damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-                
-            }
-
+            // Otherwise... do nothing
+			if (currentHealth == 20) {
+				audienceAudio.clip = lowHealthClip;
+				audienceAudio.Play();
+			}
             // Reset the damaged flag.
             damaged = false;
         }
@@ -115,8 +112,8 @@ public class AudienceHealth : MonoBehaviour {
         Debug.Log("death");
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-        //audienceAudio.clip = deathClip;
-        //audienceAudio.Play();
+		audienceAudio.clip = noHealthClip;
+        audienceAudio.Play();
 
         // Change visiblility to hidden
         setVisibility(false);
